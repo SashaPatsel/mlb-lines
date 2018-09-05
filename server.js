@@ -12,6 +12,8 @@ app.use(bodyParser.urlencoded({ extended: true }));
 
 const holder = [];
 
+const teams = ["Arizona", "Atlanta", "Dodgers", "Milwaukee", "Cleveland", "Seattle", "Mets", "Colorado", "Yankees", "Washington", "St. Louis", "Boston", "Tampa Bay", "Detroit", "Baltimore", "Kansas City", "Angels", "Oakland", "San Diego", "Pittsburgh", "Sox", "Philadelphia", "Cubs", "Houston", "Minnesota", "Cinncinai", "San Francisco", "Toronto", "Miami", "Texas"]
+
 let wholeString;
 
 //This could be a code drill. Break an array up into sub arrays every x indices
@@ -36,6 +38,16 @@ request("https://www.teamrankings.com/mlb/stat/1st-inning-scored-percentage", (e
     console.log(tempArray)
   })
 })
+
+function getHomeAway(arr) {
+
+  for (let i = 0 ; i < arr.length -1; i ++) {
+    let home = arr[i][3]
+    let away = arr[i][4]
+
+    holder.push(home, away)
+  }
+}
 
 app.listen(PORT, function () {
   console.log("App running on port " + PORT + "!");
