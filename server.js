@@ -35,8 +35,10 @@ request("https://www.teamrankings.com/mlb/stat/1st-inning-scored-percentage", (e
       tempArray.push(tempStringArr)
       // do whatever
     }
-    console.log(tempArray)
+    getHomeAway(tempArray)
+
   })
+  console.log(holder)
 })
 
 function getHomeAway(arr) {
@@ -45,7 +47,7 @@ function getHomeAway(arr) {
     let home = arr[i][3]
     let away = arr[i][4]
 
-    holder.push(home, away)
+    holder.push(teams[i], home, away)
   }
 }
 
